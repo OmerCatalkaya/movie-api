@@ -1,0 +1,132 @@
+
+
+// github işlemleri *******************************************************
+
+// git üzerindeki repostory'nin "Clone with HTTPS " adresi alnır.
+// Konsol yada terminal ekranı üzerinden "git clone" komutu ile repo yerel kaynağa klonlanır.
+// git clone https://github.com/OmerCatalkaya/movie-api.git .
+
+// "git status" komutu yapılan değişiklikler hakkında bilgi verir
+
+
+// "git add ." komutu ile tüm dosyaları version kontrolüne eklenir.
+
+// git config --global user.email omercatalkaya@gmail.com
+
+// git config --global user.name "Ömer ÇATALKAYA"
+
+// "git commit -m 'açıklama'  " komutu ile dosyalar işlenir.
+
+// "git push origin master" komutu ile dosyalar github a gönderilir...
+
+
+// express kurulum işlemleri *******************************************************
+
+1. npm install express-generator -g komutu ile express-generator kurulur
+2. express komutu ile express dosyaları kurulur.
+2. npm install komutu ile paketler yüklenir
+
+// ES 6.0 ayarları
+
+1. jsconfig.json dosyası oluşturulur
+2. İçine aşağıdaki ayar yapılır.
+{
+    "compilerOptions": {
+        "target": "ES6"
+    }
+}
+3. var değişken tanımlamaları const olarak değiştirilir
+4. callback "function" lar ()=> arrow function olarak değiştirilir...
+
+// MongoDB ayarları (mLab.com) *******************************************************
+
+1. mLab bir mongoDB sunucusudur. Ücretsiz paket seçeneği de vardır. Üye olunması gerekiyor.
+2. mLab ile veritabanı oluşturulur. Veritabanına bağlantı adresi alınır
+    bağlantı adresi : mongodb://<dbuser>:<dbpassword>@ds135653.mlab.com:35653/movie-api
+3. /helper/db.js dosyası oluşturulur.
+
+
+const mongoose = require("mongoose");
+
+module.exports = () => {
+
+    mongoose.connect('mongodb://movie_user:abcd1234@ds135653.mlab.com:35653/movie-api', { useNewUrlParser: true })
+
+    mongoose.connection.on("open", () => {
+        console.log("mongoDB : Connected");
+    });
+
+    mongoose.connection.on("error", () => {
+        console.log("mongoDB : error", err);
+    });
+
+};
+
+4. app.js dosyası içinde
+
+// mongoDB connection
+const db = require("./helper/db.js")();
+
+
+5. roboMongo ayarları yapılır.
+
+bağlantı adresi : ds135653.mlab.com
+bağlantı portu  : 35653
+kullanıcı adı : movie_user
+kullanıcı parolası : abcd1234
+
+// Moovie Schema *******************************************************
+
+1. models/Movie.js dosyası oluşturulur ve aşağıdaki kod yazılır.
+
+const mongoose = require("mongoose");
+
+const Schema = mongoose.Schema;
+
+const MovieSchema = new Schema(
+    {
+        title: {
+            type: string,
+            required: true
+        },
+        category: String,
+        country: String,
+        year: Number,
+        imdb_score: Number,
+        date: {
+            type: Date,
+            default: Date.now
+        }
+    }
+);
+
+module.exports = mongoose.model("movie", MovieSchema);
+
+3. app.js dosyasına aşağıdaki kod eklenir.
+
+const movieRouter = require('./routes/movie');
+...
+...
+...
+...
+app.use('/api/movie', movieRouter);
+
+4. routes/movie.js dosyası oluşturulur.
+
+const express = require('express');
+const router = express.Router();
+
+router.get('/', function(req, res, next) {
+  res.json('respond with a resource');
+});
+
+module.exports = router;
+
+
+http://localhost:3000/api/movie kontrol edilir.
+
+
+
+// Moovie endpoint içindeki movie kaydetmemizi sağlayan post metodunun yazılması *******************************************************
+
+1. 
