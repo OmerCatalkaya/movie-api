@@ -1,12 +1,21 @@
-
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-
 
 const Movie = require("../models/Movie");
 
-router.post('/', function (req, res, next) {
+router.post("/", function(req, res, next) {
+  const promise = Movie.find({});
 
+  promise
+    .then(data => {
+      res.json(data);
+    })
+    .catch(err => {
+      res.json(err);
+    });
+});
+
+router.post("/", function(req, res, next) {
   //const { title, imdb_score, category, country, year } = req.body;
   // Yöntem - 1
   // const movie = new Movie(
@@ -22,7 +31,6 @@ router.post('/', function (req, res, next) {
   // Yöntem - 2
   const movie = new Movie(req.body);
 
-
   // "title" zorunlu alan olduğu için bu veri kaydedilmez.
   // const { title, imdb_score, category, country, year } = req.body;
   // const movie = new Movie(
@@ -33,7 +41,6 @@ router.post('/', function (req, res, next) {
   //     year: year
   //   }
   // );
-
 
   // Yöntem - 1
   // movie.save((err, data) => {
@@ -51,17 +58,13 @@ router.post('/', function (req, res, next) {
 
   const promise = movie.save();
 
-  promise.then((data) => {
-
-    res.json({ status: 1 });
-
-  }).catch((err) => {
-
-    res.json(err);
-
-  });
-
-
+  promise
+    .then(data => {
+      res.json({ status: 1 });
+    })
+    .catch(err => {
+      res.json(err);
+    });
 });
 
 module.exports = router;

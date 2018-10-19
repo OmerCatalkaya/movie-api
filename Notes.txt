@@ -13,7 +13,7 @@
 
 // git config --global user.email omercatalkaya@gmail.com
 
-// git config --global user.name "Ömer ÇATALKAYA"
+// git config --global user.name "omercatalkaya"
 
 // "git commit -m 'açıklama'  " komutu ile dosyalar işlenir.
 
