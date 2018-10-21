@@ -13,7 +13,7 @@ module.exports = () => {
         console.log("mongoDB : error", err);
     });
 
-
+    // promis tanımlaması
     mongoose.Promise = global.Promise;
 
 };
