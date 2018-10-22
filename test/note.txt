@@ -1,0 +1,19 @@
+https://mochajs.org/
+
+https://www.chaijs.com/
+
+> npm install chai chai-http --save-dev
+
+test çalıştırmak için
+
+package.json içinde
+"scripts": {
+    "start": "nodemon ./bin/www",
+    "test" : "mocha --exit --recursive"
+  },
+
+> mocho
+> mocha --exit --recursive
+> npm run test
+> npm test
+
