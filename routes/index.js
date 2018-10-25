@@ -46,14 +46,14 @@ router.post("/authenticate", function(req, res, next) {
     if (!user) {
       res.json({
         status: false,
-        message: "Authentication failed, user not found."
+        message: "user : Authentication failed, user not found."
       });
     } else {
       bcrypt.compare(password, user.password).then(result => {
         if (!result) {
           res.json({
             status: false,
-            message: "Authentication failed, user not found."
+            message: "password: Authentication failed, user not found."
           });
         } else {
           const payload = {
@@ -64,7 +64,9 @@ router.post("/authenticate", function(req, res, next) {
             payload, 
             req.app.get("api_secret_key"),
             {
-            expiresIn: 720 //- 12 saat
+            //expiresIn: 720 // 720 dk = 60*12 = 12 saat
+            expiresIn: '365d' // expires in 365 days
+            //expiresIn: '24h' // expires in 24 hours
             }
           );
           res.json({

@@ -127,6 +127,20 @@ http://localhost:3000/api/movie kontrol edilir.
 
 
 
-// Moovie endpoint içindeki movie kaydetmemizi sağlayan post metodunun yazılması *******************************************************
+// ************************ Moovie endpoint içindeki movie kaydetmemizi sağlayan post metodunun yazılması ****************************
 
 1. 
+
+
+
+
+// jsonwebtoken
+// https://jwt.io
+
+// npm install bcrypt --save
+
+// npm install node-gyp --save
+
+// npm install node-pre-gyp --save
+
+// npm install jsonwebtoken --save
