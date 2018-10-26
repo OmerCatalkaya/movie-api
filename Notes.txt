@@ -144,3 +144,25 @@ http://localhost:3000/api/movie kontrol edilir.
 // npm install node-pre-gyp --save
 
 // npm install jsonwebtoken --save
+
+
+
+
+// *********************************** heroku işlemleri ***********************************
+
+1> https://heroku.com/ üye ol.
+2> windows için heroku cli inidir ve kur
+3> komut satırından version kontrollerini yap
+    > node --version
+    > npm --version
+    > git --version
+4> komut satırından heroku ya mail adresi ve parola ile giriş yap
+    >heroku login
+5> komut satırından heroku da yeni bir uygulama oluştur
+    > heroku create node-js-egitimi
+6> package.json dosyasındaki start komutu değiştirilir.
+    "scripts": {
+        "start": "node ./bin/www",
+        "start:dev": "nodemon ./bin/www",
+    }
+7> 

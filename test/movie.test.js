@@ -106,7 +106,7 @@ describe("Test başladı...", () => {
         });
 
     });
-
+  });
 
   describe("/put movies", () => {
     it("Bir tane filmi güncellemelidir...", done => {
@@ -117,7 +117,7 @@ describe("Test başladı...", () => {
         country: "Fransa",
         year: 2005,
         imdb_score: 7,
-        actors: ["Leonardo DiCaprio","Marion Cotillard","Joseph Gordon-Levitt","Ellen Page","Michael Caine"]
+        actors: ["Leonardo DiCaprio", "Marion Cotillard", "Joseph Gordon-Levitt", "Ellen Page", "Michael Caine"]
       };
 
       chai
@@ -144,6 +144,24 @@ describe("Test başladı...", () => {
     });
   });
 
+  describe("/DELETE movies", () => {
+    it("Bir tane filmi silmeli...", done => {
+      chai
+        .request(server)
+        .delete("/api/movies/" + movieId)
+        .set("x-access-token", token)
+        .end((err, res) => {
+          res.should.have.status(200);
+          res.body.should.be.a("object");
+          res.body.should.have.property("status").eql(1);
+
+          done();
+        });
+
+
+
+    });
+  });
 
 });
 
