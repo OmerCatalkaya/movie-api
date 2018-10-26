@@ -177,3 +177,7 @@ http://localhost:3000/api/movie kontrol edilir.
     
 9> proje çalıştırılır.
     > heroku open
+    yada
+    https://node-js-egitimi.herokuapp.com/
+
+10>
