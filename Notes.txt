@@ -180,4 +180,29 @@ http://localhost:3000/api/movie kontrol edilir.
     yada
     https://node-js-egitimi.herokuapp.com/
 
-10>
+10> proje çalışmaz hata verirse log çıktılarına bakmak için
+    
+    
+    > heroku logs
+    > heroku logs -n 200
+    > heroku logs --dyno router
+    > heroku logs --source app
+    > heroku logs --source app --dyno worker
+    > heroku logs --tail
+    > heroku logs --source app --tail
+
+11>
+
+
+
+
+// *********************************** travis-ci.org işlemleri ***********************************
+
+
+1> https://travis-ci.org/ adresine gidilir ve github hesabı ile giriş yapılır.
+
+2> repository listesinden istenilen proje aktif edilir.
+
+3> proje klasöründe ".travis.yml" dosyası oluştrulur.
+
+4> 
