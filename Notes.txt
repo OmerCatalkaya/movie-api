@@ -165,4 +165,15 @@ http://localhost:3000/api/movie kontrol edilir.
         "start": "node ./bin/www",
         "start:dev": "nodemon ./bin/www",
     }
-7> 
+7> projenin son hali git ' e commit edilir
+    > git add .
+    > git commit -m "heroku için güncelleme"
+    > git push origin master
+8> proje heroku ya push edilir. Eğer komutu çalıştırınca kullanıcı adı şifre isterse 
+   C:\Users\Tasarım\_netrc dosyasındaki kullanıcı adı ve parolası kullanılır. 
+   yada > heroku auth:token komutu çalıştırılır. Çıkan token şifre olarak kullanılır.
+
+    > git push heroku master
+    
+9> proje çalıştırılır.
+    > heroku open
