@@ -223,3 +223,7 @@ http://localhost:3000/api/movie kontrol edilir.
 
 6> Hata yok iste git hesabında  "commits" sekmesine bakılır. son commit yanında çek işareti var iste problem yoktur.
 
+7> Buld işlemi bittikten sonra github üzerinden heroku ya otomatik deploy olması için https://heroku.com
+sitesinde "Deploy" sekmesindeki "Deployment method" kısmında github seçilir. "Automatic deploys" bölümüdeki 
+"Wait for CI to pass before deploy" kutusu çek edilir ve "Enable Automatic Deploys" aktif edilir.
+
