@@ -1,7 +1,7 @@
 [![Build status](https://api.travis-ci.org/OmerCatalkaya/movie-api.svg)](https://travis-ci.org/meseven/node-egitimi-movie-api)
 
 # node-movie-api
-Udemy üzerinde yayınlanan ["Sıfırdan Her Yönüyle Node.JS" eğitiminin reposudur.
+Udemy üzerinde yayınlanan ["Sıfırdan Her Yönüyle Node.JS"] eğitiminin reposudur.
 
 # Movies
 
