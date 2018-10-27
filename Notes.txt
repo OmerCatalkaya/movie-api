@@ -203,6 +203,23 @@ http://localhost:3000/api/movie kontrol edilir.
 
 2> repository listesinden istenilen proje aktif edilir.
 
-3> proje klasöründe ".travis.yml" dosyası oluştrulur.
+3> proje klasöründe ".travis.yml" dosyası oluşturulur.
 
-4> 
+    language: node_js
+    node_js:
+      - 8
+    before_install:
+      - npm install
+      - export NODE_ENV=production
+    script:
+      - npm run test
+
+4> son değişiklikler github'a aktarılır.
+    > git add .
+    > git commit -m "travis-ci için güncelleme"
+    > git push origin master
+
+5> git hesabına aktarılan proje travis-ci tarafından otomatik olarak build edilir.
+
+6> Hata yok iste git hesabında  "commits" sekmesine bakılır. son commit yanında çek işareti var iste problem yoktur.
+
